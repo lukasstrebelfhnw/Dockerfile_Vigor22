@@ -4,7 +4,7 @@ WORKDIR /code
 
 COPY ./requirements.txt /code/requirements.txt
 RUN apt-get update && \
-    apt-get install -y gdal-bin libgdal-dev g++ libgdal32 git && \
+    apt-get install -y --no-install-recommends gdal-bin libgdal-dev g++ git && \
     pip install --upgrade pip && \
     pip install --no-cache-dir --upgrade -r /code/requirements.txt && \
     apt-get -y remove g++ gdal-bin libgdal-dev git && \
